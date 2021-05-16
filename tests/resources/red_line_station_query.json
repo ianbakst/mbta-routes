@@ -1,0 +1,169 @@
+{
+    "data": {
+        "attributes": {
+            "color": "DA291C",
+            "description": "Rapid Transit",
+            "direction_destinations": [
+                "Ashmont/Braintree",
+                "Alewife"
+            ],
+            "direction_names": [
+                "South",
+                "North"
+            ],
+            "fare_class": "Rapid Transit",
+            "long_name": "Red Line",
+            "short_name": "",
+            "sort_order": 10010,
+            "text_color": "FFFFFF",
+            "type": 1
+        },
+        "id": "Red",
+        "links": {
+            "self": "/routes/Red"
+        },
+        "relationships": {
+            "line": {
+                "data": {
+                    "id": "line-Red",
+                    "type": "line"
+                }
+            },
+            "route_patterns": {
+                "data": [
+                    {
+                        "id": "Red-1-1",
+                        "type": "route_pattern"
+                    }
+                ]
+            }
+        },
+        "type": "route"
+    },
+    "included": [
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Alewife - Red Line",
+                "latitude": 42.395428,
+                "location_type": 0,
+                "longitude": -71.142483,
+                "municipality": "Cambridge",
+                "name": "Alewife",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Red Line",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70061",
+            "links": {
+                "self": "/stops/70061"
+            },
+            "relationships": {
+                "child_stops": {},
+                "connecting_stops": {},
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70061"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-alfcl",
+                        "type": "stop"
+                    }
+                },
+                "recommended_transfers": {},
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "direction_id": 1,
+                "name": "Ashmont - Alewife",
+                "sort_order": 10010104,
+                "time_desc": null,
+                "typicality": 1
+            },
+            "id": "Red-1-1",
+            "links": {
+                "self": "/route_patterns/Red-1-1"
+            },
+            "relationships": {
+                "representative_trip": {
+                    "data": {
+                        "id": "47253745",
+                        "type": "trip"
+                    }
+                },
+                "route": {
+                    "data": {
+                        "id": "Red",
+                        "type": "route"
+                    }
+                }
+            },
+            "type": "route_pattern"
+        },
+        {
+            "attributes": {
+                "bikes_allowed": 0,
+                "block_id": "S931_-1",
+                "direction_id": 1,
+                "headsign": "Alewife",
+                "name": "",
+                "wheelchair_accessible": 1
+            },
+            "id": "47253745",
+            "links": {
+                "self": "/trips/47253745"
+            },
+            "relationships": {
+                "route": {
+                    "data": {
+                        "id": "Red",
+                        "type": "route"
+                    }
+                },
+                "route_pattern": {
+                    "data": {
+                        "id": "Red-1-1",
+                        "type": "route_pattern"
+                    }
+                },
+                "service": {
+                    "data": {
+                        "id": "SpringWeekday",
+                        "type": "service"
+                    }
+                },
+                "shape": {
+                    "data": {
+                        "id": "931_0010",
+                        "type": "shape"
+                    }
+                },
+                "stops": {
+                    "data": [
+                        {
+                            "id": "70061",
+                            "type": "stop"
+                        }
+                    ]
+                }
+            },
+            "type": "trip"
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

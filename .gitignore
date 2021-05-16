@@ -1,0 +1,7 @@
+.venv*
+__pycache__/*
+logs/*
+!logs/.keep
+.idea/*
+.pytest_cache
+*.tgz
