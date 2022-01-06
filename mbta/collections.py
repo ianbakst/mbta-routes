@@ -2,7 +2,9 @@ from typing import Any, Dict, List, Set, Union
 from mbta.station import Station
 
 
-class TransferRouteError(Exception):  # custom exception for a failure to find a transfer route between two stations.
+class TransferRouteError(
+    Exception
+):  # custom exception for a failure to find a transfer route between two stations.
     pass
 
 
@@ -38,7 +40,7 @@ def transfer_stations(
 
 def line_transfers(
     tx_stations: Dict[str, Dict[str, Union[Station, Set[str]]]],
-    down_lines: List[str]=[],
+    down_lines: List[str] = [],
 ) -> Dict[str, List[Dict[str, str]]]:
     """
     Returns all route-route transfer connections and the stations at which to transfer.

@@ -5,3 +5,4 @@ logs/*
 .idea/*
 .pytest_cache
 *.tgz
+*.egg-info

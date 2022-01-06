@@ -18,6 +18,7 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger()
 
+
 # a function to print stations' names and their ids
 def print_all_stations(all_stations):
     for station in all_stations.values():
@@ -28,10 +29,10 @@ def main():
     down_lines = ["Orange", "Green-B", "Green-C", "Green-D", "Green-E"]
     running = True  # for the while loop
     # Get and build the data structures for all operations.
-    mode = '0'
+    mode = "0"
     while running:
         # Switch for program actions
-        if mode == '0':
+        if mode == "0":
             routes = mbta.route.get_all([0, 1])
             for r in routes.values():
                 route_stations = mbta.station.get_all_from_route(r["route"])
@@ -41,34 +42,34 @@ def main():
             tx_stations = mbta.transfer_stations(all_stations)
             itx = mbta.line_transfers(tx_stations)
 
-        elif mode == '1':
+        elif mode == "1":
             # display route names
             LOGGER.info("All 'Light Rail' and 'Heavy Rail' route names:")
             for r in routes.values():
                 LOGGER.info(r["route"].name)
 
-        elif mode == '2':
+        elif mode == "2":
             # find route with most stops, display result.
             most_stops = max(routes.items(), key=lambda v: routes[v[0]]["num_stops"])[0]
             LOGGER.info(
                 f"The {routes[most_stops]['route'].name} has the most stops with {routes[most_stops]['num_stops']}."
             )
 
-        elif mode == '3':
+        elif mode == "3":
             # find route with fewest stops, display result
             fewest_stops = min(routes.items(), key=lambda v: routes[v[0]]["num_stops"])[0]
             LOGGER.info(
                 f"The {routes[fewest_stops]['route'].name} has the fewest stops with {routes[fewest_stops]['num_stops']}."
             )
 
-        elif mode == '4':
+        elif mode == "4":
             # display all stations with transfers
             for tx_station in tx_stations.values():
                 LOGGER.info(
                     f"{tx_station['station'].name} connects the routes: {', '.join([routes[line]['route'].name for line in tx_station['lines']])}"
                 )
 
-        elif mode == '5':
+        elif mode == "5":
             # choose origin id and destination id
             origin_id = None
             dest_id = None
@@ -105,9 +106,11 @@ def main():
                 )
                 LOGGER.info(f"From {all_stations[origin_id]['station'].name} {connection_string}")
             except mbta.collections.TransferRouteError:
-                LOGGER.warning(f"Cannot find route transfer. The following lines are down: {', '.join([routes[d]['route'].name for d in down_lines])}.")
+                LOGGER.warning(
+                    f"Cannot find route transfer. The following lines are down: {', '.join([routes[d]['route'].name for d in down_lines])}."
+                )
 
-        elif mode == '6':
+        elif mode == "6":
             LOGGER.info("Exiting program.")
             running = False
         else:
@@ -122,7 +125,8 @@ def main():
             "(4) - All stations which connect multiple subway routes.\n"
             "(5) - Transfers between two stations.\n"
             "(6) - Exit.\n"
-            "(0) - Refresh data.\n")
+            "(0) - Refresh data.\n"
+        )
     return
 
 

@@ -58,6 +58,6 @@ def get_all(route_types: Union[List[int], int, None] = None) -> Dict[str, Dict[s
     req = _get_routes(api_url)
     if req.status_code >= 400:
         raise ValueError
-    if len(req.json()['data']) == 0:
+    if len(req.json()["data"]) == 0:
         raise ValueError(f"Invalid route type(s) {route_types}.")
     return {d["id"]: {"route": _from_json(d)} for d in req.json().pop("data")}
